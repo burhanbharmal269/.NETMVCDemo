@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCrudAjax", "MVCCrudAjax\MVCCrudAjax.csproj", "{5B164EE7-30FD-4FA8-83EA-634F8987DFBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B164EE7-30FD-4FA8-83EA-634F8987DFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B164EE7-30FD-4FA8-83EA-634F8987DFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B164EE7-30FD-4FA8-83EA-634F8987DFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B164EE7-30FD-4FA8-83EA-634F8987DFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45E1CBFE-D18A-41F9-94FC-62CAF630C495}
+	EndGlobalSection
+EndGlobal

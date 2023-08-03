@@ -1,0 +1,97 @@
+﻿* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    background-image: url('../image/463110.jpg');
+    background-position :center;
+    background-repeat : no-repeat;
+    background-size:cover;
+    height:100%;
+}
+
+form{
+    width:40% !important;
+    background-color:#fff;
+    padding : 40px;
+    border-radius:15px;
+    margin-top:70px;
+}
+
+.btn-primary {
+    width: 50%;
+    border: none !important;
+    border-radius: 20px !important;
+    background-color: darkmagenta !important;
+    filter: drop-shadow(2px 4px 1px rgb(0 0 0 / 0.4));
+}
+
+.form-control-lg {
+    -moz-box-shadow: 0 5px 30px 0 rgba(0,0,0,.1) !important;
+    -webkit-box-shadow: 0 5px 30px 0 rgba(0,0,0,.1) !important;
+    -o-box-shadow: 0 5px 30px 0 rgba(0,0,0,.1) !important;
+    -ms-box-shadow: 0 5px 30px 0 rgba(0,0,0,.1) !important;
+    border: none !important;
+    width:100%;
+    border-radius:15px !important;
+}
+input:focus{
+    cursor:pointer !important;
+}
+input:hover {
+    cursor: pointer;
+}
+.sociallinks {
+    margin-top: 10px !important;
+    filter: drop-shadow(1px 4px 1px rgb(0 0 0 / 0.4));
+    text-decoration:none;
+}
+
+.logintext{
+    margin-top:20px !important;
+}
+#signuptext a{
+    color: indigo !important;
+    text-decoration: none !important;
+}
+#signuptext{
+    margin-top:100px !important;
+}
+
+::-webkit-input-placeholder {
+    WebKit, Blink, Edge color: indigo;
+    font-size: 15px;
+    font-weight: 700;
+    color: indigo;
+}
+
+:-moz-placeholder {  Mozilla Firefox 4 to 18 
+    color: indigo;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+::-moz-placeholder {  Mozilla Firefox 19+ 
+    color: indigo;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+:-ms-input-placeholder {  Internet Explorer 10-11 
+    color: indigo;
+    font-size: 15px;
+    font-weight:700;
+}
+
+h4{
+    color:indigo !important;
+    font-weight:800 !important;
+}
+
+#forgetpassword a{
+    text-decoration:none !important;
+    color:indigo !important;
+}
+
