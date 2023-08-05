@@ -93,11 +93,7 @@ function loadData() {
 
 
 function CheckButton() {
-    //var res = validateSignIn();
-    //if (res == false) {
-    //    return false;
-    //}
-
+   
     var signupObj = {
 
         emailID: $('#EmailID').val(),

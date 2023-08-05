@@ -20,6 +20,7 @@ namespace MVCCrudAjax.Controllers
             _config = config;
         }
 
+        #region List All Employee
         public List<Employee> ListAll()
         {
             string connectionString = _config.GetConnectionString("Default");
@@ -47,7 +48,9 @@ namespace MVCCrudAjax.Controllers
                 return emplist;
             }
         }
+        #endregion List All Employee
 
+        #region Add or Update Employee
         [ValidateAntiForgeryToken]
         public int AddEmployee(Employee emp)
         {
@@ -69,7 +72,7 @@ namespace MVCCrudAjax.Controllers
                     {
                         emailCount = Convert.ToInt32(result);
                     }
-                    //emailCount = (int)checkEmailCmd.ExecuteScalar();
+                    
                      
                 }
                 catch(Exception ex)
@@ -125,7 +128,9 @@ namespace MVCCrudAjax.Controllers
                 
             }
         }
+        #endregion Add or Update Employee
 
+        #region Add Account
         public int AddAccount(Account acc)
         {
             string connectionString = _config.GetConnectionString("Default");
@@ -144,8 +149,7 @@ namespace MVCCrudAjax.Controllers
                     {
                         emailCount = Convert.ToInt32(result);
                     }
-                    //emailCount = (int)checkEmailCmd.ExecuteScalar();
-
+                  
                 }
                 catch (Exception ex)
                 {
@@ -165,7 +169,6 @@ namespace MVCCrudAjax.Controllers
                     SqlCommand com = new SqlCommand("SP_AddAccount", con);
                     com.CommandType = CommandType.StoredProcedure;
 
-                    //com.Parameters.AddWithValue("@Id", acc.Id);
                     com.Parameters.AddWithValue("@FirstName", acc.FirstName);
                     com.Parameters.AddWithValue("@LastName", acc.LastName);
                     com.Parameters.AddWithValue("@EmailID", acc.EmailID);
@@ -178,7 +181,9 @@ namespace MVCCrudAjax.Controllers
                 
             }
         }
+        #endregion Add Account
 
+        #region Check Credentials
         public int CheckCredential(Account acc)
         {
             string connectionString = _config.GetConnectionString("Default");
@@ -202,7 +207,7 @@ namespace MVCCrudAjax.Controllers
                     }
                     if (emailCount > 0)
                     {
-                      
+
                         // Store user ID in the session
                         HttpContext.Session.SetString("EmailID", acc.EmailID.ToString());
 
@@ -217,8 +222,10 @@ namespace MVCCrudAjax.Controllers
                 return emailCount;
 
             }
-        }
+        } 
+        #endregion Check Credentials
 
+        #region Encrypt Method
         private string Encrypt(string clearText)
         {
             if (clearText == null)
@@ -262,75 +269,7 @@ namespace MVCCrudAjax.Controllers
             }
             return i;
         }
-
-        #region Commented add
-        //[ValidateAntiForgeryToken]
-        //public int AddEmployee(Employee emp)
-        //{
-        //    string connectionString = _config.GetConnectionString("Default");
-
-        //    using (SqlConnection con = new SqlConnection(connectionString))
-        //    {
-        //        con.Open();
-
-        //        // Check if email exists in the database
-        //        SqlCommand checkEmailCmd = new SqlCommand("SELECT COUNT(*) FROM Employee WHERE EmailID = @EmailID", con);
-        //        checkEmailCmd.Parameters.AddWithValue("@EmailID", emp.EmailID);
-        //        int emailCount = (int)checkEmailCmd.ExecuteScalar();
-
-        //        if (emailCount > 0)
-        //        {
-
-        //            // Email already exists, return a negative value (-1) as an error indicator
-        //            return -1;
-        //        }
-
-        //        SqlCommand com = new SqlCommand("SP_InsertEmployeeOrUpdateEmployee", con);
-        //        com.CommandType = CommandType.StoredProcedure;
-
-        //        com.Parameters.AddWithValue("@Id", emp.EmployeeID);
-        //        com.Parameters.AddWithValue("@FirstName", emp.FirstName);
-        //        com.Parameters.AddWithValue("@LastName", emp.LastName);
-        //        com.Parameters.AddWithValue("@Code", emp.Code);
-        //        com.Parameters.AddWithValue("@EmailID", emp.EmailID);
-        //        com.Parameters.AddWithValue("@Mobile", emp.Mobile);
-        //        com.Parameters.AddWithValue("@Salary", emp.Salary);
-
-
-        //        int i = com.ExecuteNonQuery();
-        //        return i;
-        //    }
-
-        //}
-
-        //[ValidateAntiForgeryToken]
-        //public int UpdateEmployee(Employee emp)
-        //{
-        //    string connectionString = _config.GetConnectionString("Default");
-
-        //    using (SqlConnection con = new SqlConnection(connectionString))
-        //    {
-        //        con.Open();
-
-
-        //        SqlCommand com = new SqlCommand("SP_InsertEmployeeOrUpdateEmployee", con);
-        //        com.CommandType = CommandType.StoredProcedure;
-
-        //        com.Parameters.AddWithValue("@Id", emp.EmployeeID);
-        //        com.Parameters.AddWithValue("@FirstName", emp.FirstName);
-        //        com.Parameters.AddWithValue("@LastName", emp.LastName);
-        //        com.Parameters.AddWithValue("@Code", emp.Code);
-        //        com.Parameters.AddWithValue("@EmailID", emp.EmailID);
-        //        com.Parameters.AddWithValue("@Mobile", emp.Mobile);
-        //        com.Parameters.AddWithValue("@Salary", emp.Salary);
-
-
-        //        int i = com.ExecuteNonQuery();
-        //        return i;
-        //    }
-
-        //}
-        #endregion Commented add
+        #endregion Encrypt Method
 
 
         public ActionResult signup()
@@ -389,10 +328,7 @@ namespace MVCCrudAjax.Controllers
             var Employee = ListAll().Find(x => x.EmployeeID.Equals(ID));
             return Json(Employee);
         }
-        //public JsonResult Update(Employee emp)
-        //{
-        //    return Json(UpdateEmployee(emp));
-        //}
+        
 
         [ValidateAntiForgeryToken]
         public JsonResult Delete(int ID)

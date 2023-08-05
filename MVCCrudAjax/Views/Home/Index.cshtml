@@ -62,7 +62,6 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            @*<label for="EmployeeId">ID</label>*@
                             <input type="hidden" class="form-control" id="EmployeeID" placeholder="Id" disabled="disabled" />
                         </div>
                         @Html.AntiForgeryToken()
@@ -101,7 +100,7 @@
                         </div>
                     </form>
                     
-                    @*<input type="button" class="btn btn-primary" id="btnAdd" value="Add" onclick="return Add();"/>*@
+                    
                     @Html.AntiForgeryToken()
                     <button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();" >Add</button>
                     @Html.AntiForgeryToken()
